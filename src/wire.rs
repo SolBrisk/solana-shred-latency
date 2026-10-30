@@ -150,7 +150,10 @@ impl<'a> Shred<'a> {
             node < (1usize << proof_size),
             "Shred position exceeds proof tree"
         );
-        for sibling in packet[proof_offset..proof_offset + proof_size * 20].chunks_exact(20) {
+        for sibling in packet[proof_offset..proof_offset + proof_size * 20]
+            .as_chunks::<20>()
+            .0
+        {
             root = if node & 1 == 0 {
                 join(&root, sibling)
             } else {
