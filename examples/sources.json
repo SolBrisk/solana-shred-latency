@@ -1,0 +1,6 @@
+{
+  "sources": [
+    { "name": "solbrisk-fra", "bind": "0.0.0.0:21001" },
+    { "name": "other-provider", "bind": "0.0.0.0:21002" }
+  ]
+}
